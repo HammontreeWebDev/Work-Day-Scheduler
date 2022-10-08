@@ -183,11 +183,11 @@ function check5pm() {
 function save(event) {
     // set the user input to the value of the text field closest to the button that was clicked by navigating to the button's parent element and finding the element with class time-block.
 
-    let userInput = $(event.target).parent().find(".time-block").val();
+    let userInput = $(event.target).parent().find(timeBlockEl).val();
 
     // set the time slot and pulls the id
 
-    let hour = $(event.target).parent().find(".time-block").attr("id");
+    let hour = $(event.target).parent().find(timeBlockEl).attr("id");
 
     // commit to local storage
     localStorage.setItem(hour, userInput);
@@ -195,21 +195,17 @@ function save(event) {
 
 function createArray() {
     var hoursId = [];
-    $('.time-block').each(function () {
+    $(timeBlockEl).each(function () {
         var id = $(this).attr('id');
         hoursId.push(id);
     });
 
-    // loops through both local storage and the array of text field ID's defined above
+    // loops through local storage and ID's
     for (let i = 0; i < localStorage.length; i++) {
-        for (j = 0; j < hoursId.length; j++) {
-            // if local storage is not empty
+        for (x = 0; x < hoursId.length; x++) {
             if (localStorage.key(i) !== null && localStorage.key(i) !== undefined) {
-                // for any local storage key present that matches any of the ID values defined in the array...
-                if (localStorage.key(i) === hoursId[j]) {
-                    // get the text associated with that key in local storage
+                if (localStorage.key(i) === hoursId[x]) {
                     let storedText = localStorage.getItem(localStorage.key(i));
-                    // assign it to the text area with the class name defined by the local storage key
                     $('#' + localStorage.key(i)).html(storedText);
                 }
             }

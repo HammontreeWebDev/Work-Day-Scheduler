@@ -25,11 +25,6 @@ textarea {
   white-space: pre-wrap;
 }
 
-.time-block {
-  text-align: center;
-  border-radius: 15px;
-}
-
 .row {
   white-space: pre-wrap;
   height: 80px;
@@ -68,4 +63,15 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.custom-margin {
+  margin-bottom: 3.3%;
+}
+
+/* I realized AFTER I wrote the javascript that the timeblock class is technically in the wrong place... So, I'm applying the correct styling meant for the time block here and deleting the time block class from CSS for styling purposes and keeping it in the HTML since my js is relying on it */
+
+.custom-time-block {
+  text-align: center;
+  border-radius: 15px;
 }
