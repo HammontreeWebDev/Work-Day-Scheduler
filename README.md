@@ -37,3 +37,7 @@ THEN the saved events persist
 See the repository for license information.
 
 ## Deployed Application
+
+Link to Deployed Application: https://visag3.github.io/Work-Day-Scheduler/
+
+<img width="1728" alt="Screen Shot 2022-10-08 at 11 34 05 AM" src="https://user-images.githubusercontent.com/113649683/194715460-c5b10382-af36-48fa-b3a2-797adad85472.png">
