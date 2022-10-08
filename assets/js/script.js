@@ -11,6 +11,7 @@ var timeBlock2Pm = $("#2pm");
 var timeBlock3Pm = $("#3pm");
 var timeBlock4Pm = $("#4pm");
 var timeBlock5Pm = $("#5pm");
+var saveBtnEl = $(".saveBtn");
 
 // Global var to be used within moment function
 var now = moment();
@@ -19,7 +20,8 @@ var alsoNow = moment();
 // create moments
 currentDayEl.text(moment().format("dddd, MMM Do"));
 
-// check current time with hoisted functions
+// check current time with hoisted functions in a loop so that page is always checking the time.
+
 check9am();
 check10am();
 check11am();
@@ -174,8 +176,47 @@ function check5pm() {
         timeBlock5Pm.addClass("future");
     }
 }
-// create local storage
 
-// add event listeners
 
-// console logs for debug
+// function to save user input to local storage 
+
+function save(event) {
+    // set the user input to the value of the text field closest to the button that was clicked by navigating to the button's parent element and finding the element with class time-block.
+
+    let userInput = $(event.target).parent().find(".time-block").val();
+
+    // set the time slot and pulls the id
+
+    let hour = $(event.target).parent().find(".time-block").attr("id");
+
+    // commit to local storage
+    localStorage.setItem(hour, userInput);
+};
+
+function createArray() {
+    var hoursId = [];
+    $('.time-block').each(function () {
+        var id = $(this).attr('id');
+        hoursId.push(id);
+    });
+
+    // loops through both local storage and the array of text field ID's defined above
+    for (let i = 0; i < localStorage.length; i++) {
+        for (j = 0; j < hoursId.length; j++) {
+            // if local storage is not empty
+            if (localStorage.key(i) !== null && localStorage.key(i) !== undefined) {
+                // for any local storage key present that matches any of the ID values defined in the array...
+                if (localStorage.key(i) === hoursId[j]) {
+                    // get the text associated with that key in local storage
+                    let storedText = localStorage.getItem(localStorage.key(i));
+                    // assign it to the text area with the class name defined by the local storage key
+                    $('#' + localStorage.key(i)).html(storedText);
+                }
+            }
+        }
+    }
+}
+
+createArray();
+
+saveBtnEl.click(save);
