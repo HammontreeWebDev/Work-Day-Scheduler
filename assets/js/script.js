@@ -12,6 +12,7 @@ var timeBlock3Pm = $("#3pm");
 var timeBlock4Pm = $("#4pm");
 var timeBlock5Pm = $("#5pm");
 var saveBtnEl = $(".saveBtn");
+var clearBtnEl = $(".clearBtn");
 
 // Global var to be used within moment function
 var now = moment();
@@ -32,7 +33,7 @@ check3pm();
 check4pm();
 check5pm();
 
-// create functions
+// create functions to check each time slot...
 function check9am() {
     var hourToCheck = (now.day() !== 0) ? 09 : 00;
     var dateToCheck = now.hour(hourToCheck).minute(00);
@@ -215,4 +216,146 @@ function createArray() {
 
 createArray();
 
+// name El variables to be used in clear functions
+var clear9 = $("#clear-9")
+var clear10 = $("#clear-10")
+var clear11 = $("#clear-11")
+var clear12 = $("#clear-12")
+var clear13 = $("#clear-13")
+var clear14 = $("#clear-14")
+var clear15 = $("#clear-15")
+var clear16 = $("#clear-16")
+var clear17 = $("#clear-17")
+
+// functions to be called for clear buttons in click handler
+function delete9(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("9am", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+function delete10(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("10am", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+function delete11(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("11am", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+function delete12(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("12pm", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+function delete13(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("1pm", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+function delete14(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("2pm", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+function delete15(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("3pm", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+function delete16(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("4pm", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+function delete17(event) {
+    let warning = confirm("Warning! This also refreshes the page. Please make sure you have saved all your other events before attempting to clear a time block. Thank you.")
+
+    if (warning) {
+
+        let userInput = $(event.target).parent().find(timeBlockEl).val();
+        // remove from local storage
+        localStorage.removeItem("5pm", userInput);
+        // remove text from page
+        location.reload();
+    }
+}
+
+// add the event listeners. wooo hooo! :)
 saveBtnEl.click(save);
+clear9.click(delete9);
+clear10.click(delete10);
+clear11.click(delete11);
+clear12.click(delete12);
+clear13.click(delete13);
+clear14.click(delete14);
+clear15.click(delete15);
+clear16.click(delete16);
+clear17.click(delete17);
+
+
+console.log(timeBlock9Am);
